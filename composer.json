@@ -7,7 +7,10 @@
     "require": {
         "php": "^8.1",
         "backpack/crud": "^5.6",
+        "backpack/filemanager": "^2.0",
+        "backpack/pagemanager": "^3.0",
         "backpack/settings": "^3.0",
+        "barryvdh/laravel-debugbar": "^3.8",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.8",
         "laravel/breeze": "^1.21",
