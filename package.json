@@ -16,9 +16,27 @@
         "postcss": "^8.4.18",
         "tailwindcss": "^3.2.1",
         "vite": "^4.0.0",
-        "vue": "^3.2.41"
+        "vue": "^3.2.41",
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@tailwindcss/typography": "^0.5.9",
+        "prettier-plugin-tailwindcss": "^0.2.2"
     },
     "dependencies": {
-        "vuex": "^4.0.2"
+        "vuex": "^4.0.2",
+        "@fortawesome/fontawesome-svg-core": "^6.2.1",
+        "@fortawesome/free-brands-svg-icons": "^6.2.1",
+        "@fortawesome/free-regular-svg-icons": "^6.2.1",
+        "@fortawesome/free-solid-svg-icons": "^6.2.1",
+        "@fortawesome/vue-fontawesome": "^3.0.3",
+        "@headlessui/vue": "^1.7.8",
+        "@kyvg/vue3-notification": "^2.9.0",
+        "@splidejs/vue-splide": "^0.6.12",
+        "@stripe/stripe-js": "^1.52.1",
+        "@vueform/slider": "^2.1.7",
+        "@vueuse/core": "^9.12.0",
+        "flowbite": "^1.6.3",
+        "qs": "^6.11.0",
+        "vue-multiselect": "^3.0.0-beta.1",
+        "vue-tel-input": "^8.0.1"
     }
 }
