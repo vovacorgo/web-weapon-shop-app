@@ -177,19 +177,19 @@ const searchGoods = () => form.get(route('goods.search'));
                         <Dropdown v-if="user" class="ml-4 hidden sm:flex">
                             <template #trigger>
                                 <button class="inline-flex focus:outline-none" title="Profile">
-                                    <img
-                                        :src="user.avatar"
-                                        :alt="fullName"
-                                        :title="fullName"
-                                        class="h-10 w-10 rounded-full object-cover"
-                                    />
+<!--                                    <img-->
+<!--                                        :src="user.avatar"-->
+<!--                                        :alt="fullName"-->
+<!--                                        :title="fullName"-->
+<!--                                        class="h-10 w-10 rounded-full object-cover"-->
+<!--                                    />-->
                                 </button>
                             </template>
 
                             <template #content>
                                 <div class="px-4 py-2 text-xs">
                                     <p class="truncate font-semibold text-gray-700 dark:text-gray-300">
-                                        {{ user.full_name }}
+                                        {{ user.name }}
                                     </p>
                                     <p class="truncate text-gray-600 dark:text-gray-400">{{ user.email }}</p>
                                 </div>
