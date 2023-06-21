@@ -30,5 +30,22 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-
+    'multiavatar' => [
+        'url' => 'https://api.multiavatar.com/',
+        'key' => env('MULTIAVATAR_API_KEY'),
+    ],
+    'csc' => [
+        'url' => env('CSC_API_URL'),
+        'key' => env('CSC_API_KEY'),
+    ],
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect' => '/social/github/callback',
+    ],
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => '/social/google/callback',
+    ],
 ];

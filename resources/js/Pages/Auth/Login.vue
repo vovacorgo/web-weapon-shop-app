@@ -1,19 +1,15 @@
 <script setup>
+import { Head, Link, useForm } from '@inertiajs/vue3';
 import Checkbox from '@/Components/Checkbox.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
 
 defineProps({
-    canResetPassword: {
-        type: Boolean,
-    },
-    status: {
-        type: String,
-    },
+    canResetPassword: Boolean,
+    status: String,
 });
 
 const form = useForm({
@@ -33,7 +29,7 @@ const submit = () => {
     <GuestLayout>
         <Head title="Log in" />
 
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+        <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
             {{ status }}
         </div>
 
@@ -69,20 +65,37 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
-            <div class="block mt-4">
-                <label class="flex items-center">
+            <div class="mt-4 block">
+                <label class="flex cursor-pointer items-center">
                     <Checkbox name="remember" v-model:checked="form.remember" />
                     <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">Remember me</span>
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="mt-3 flex flex-col justify-between space-y-2 sm:flex-row sm:space-y-0">
+                <Link
+                    :href="route('social', 'github')"
+                    class="inline-flex items-center justify-center rounded-lg bg-[#24292F] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-[#24292F]/50 hover:bg-[#24292F]/90 dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30"
+                >
+                    <font-awesome-icon :icon="['fab', 'github']" size="lg" class="-ml-1 mr-2" />
+                    Sign in with GitHub
+                </Link>
+                <Link
+                    :href="route('social', 'google')"
+                    class="dark:focus:ring-[#4285F4]/55 inline-flex items-center justify-center rounded-lg bg-[#4285F4] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-[#4285F4]/50 hover:bg-[#4285F4]/90"
+                >
+                    <font-awesome-icon :icon="['fab', 'google']" size="lg" class="-ml-1 mr-2" />
+                    Sign in with Google
+                </Link>
+            </div>
+
+            <div class="mt-4 flex items-center justify-end">
                 <Link
                     v-if="canResetPassword"
                     :href="route('password.request')"
-                    class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                    class="rounded-md text-sm text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 hover:text-gray-900 dark:text-gray-400 dark:focus:ring-offset-gray-800 dark:hover:text-gray-100"
                 >
-                    Forgot your password ?
+                    Forgot your password?
                 </Link>
 
                 <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">

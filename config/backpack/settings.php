@@ -10,7 +10,7 @@ return [
     | Database Settings Table Name
     |
     */
-    'table_name' => 'settings',
+    'table_name' => 'settings_backpack',
 
     /*
     |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ return [
     | URL Segment aka route to the Settings panel.
     |
     */
-    'route' => 'setting',
+    'route' => 'settings_backpack',
 
     /*
     |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ return [
     |   - if you leave this empty and your keys match other configuration files you might ovewrite them.
     |
     */
-    'config_prefix' => 'settings',
+    'config_prefix' => 'settings_backpack',
 
     /*
     |--------------------------------------------------------------------------

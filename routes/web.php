@@ -4,36 +4,9 @@ use App\Http\Controllers\Main\CartController;
 use App\Http\Controllers\Main\CheckoutController;
 use App\Http\Controllers\Main\GoodController;
 use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Main\Profile\ProfileController;
 use App\Http\Controllers\Main\Profile\WalletController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 
 Route::controller(IndexController::class)->group(function () {
     Route::get('', 'dashboard')->name('index.dashboard');
@@ -54,8 +27,6 @@ Route::prefix('cart')->controller(CartController::class)->group(function () {
     Route::delete('delete/{good}', 'delete')->name('cart.delete');
     Route::delete('bulk-delete', 'bulkDelete')->name('cart.bulk-delete');
 });
-
-
 
 Route::middleware('auth')->group(function () {
     Route::prefix('checkout')->controller(CheckoutController::class)->group(function () {
@@ -89,5 +60,4 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

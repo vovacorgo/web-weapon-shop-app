@@ -20,7 +20,7 @@ class Category extends Model implements HasMedia
 
     protected $fillable = ['title', 'slug', 'parent_id', 'is_active', 'is_navigational', 'manual_url'];
 
-    protected $appends = ['thumbnail'];
+//    protected $appends = ['thumbnail'];
 
     protected $casts = [
         'is_active' => 'boolean',
@@ -81,8 +81,8 @@ class Category extends Model implements HasMedia
         return 'slug';
     }
 
-    protected function thumbnail(): Attribute
-    {
-        return Attribute::get(fn () => $this->hasMedia('categories') ? $this->getFirstMediaUrl('categories') : url('static/not-found.svg'));
-    }
+//    protected function thumbnail(): Attribute
+//    {
+//        return Attribute::get(fn () => $this->hasMedia('categories') ? $this->getFirstMediaUrl('categories') : url('static/not-found.svg'));
+//    }
 }

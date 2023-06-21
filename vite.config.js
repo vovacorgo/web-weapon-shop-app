@@ -6,10 +6,30 @@ export default ({ mode }) => {
     process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
     return defineConfig({
-        server: { host: process.env.VITE_APP_URL },
+        server: {
+            host: 'localhost',
+            port:82,
+            watch: {
+                usePolling: true
+            },
+            include: 'resources/js/**/*.vue',
+            rollupOptions: {
+                input: 'resources/js/app.js',
+            },
+        },
+        build: {
+            rollupOptions: {
+                input: 'resources/js/app.js',
+            },
+        },
+        // watch: {
+        //     // Enable hot reloading for Vue files
+        //     usePolling: true,
+        //     include: 'resources/js/**/*.vue',
+        // },
         plugins: [
             laravel({
-                input: ['resources/js/app.js', 'resources/css/filament.css'],
+                input: ['resources/js/app.js'],
                 ssr: 'resources/js/ssr.js',
                 refresh: true,
             }),

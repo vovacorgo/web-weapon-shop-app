@@ -16,7 +16,7 @@ class Brand extends Model
 
     protected $fillable = ['name', 'slug', 'url'];
 
-    protected $appends = ['logo'];
+//    protected $appends = ['logo'];
 
     public function goods(): HasMany
     {

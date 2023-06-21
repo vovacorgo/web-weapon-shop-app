@@ -2,7 +2,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
+        "dev": "vue-cli-service serve",
+        "vite": "vite",
         "build": "vite build && vite build --ssr && vite build && vite build --ssr --ssr"
     },
     "devDependencies": {

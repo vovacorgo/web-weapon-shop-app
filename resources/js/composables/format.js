@@ -1,5 +1,5 @@
 export function useFormat() {
-    const formatMoney = (value, format = 'ua', asCurrency = true, currency = 'UAH') => {
+    const formatMoney = (value, format = 'ua', asCurrency = true, currency = 'USD') => {
         return new Intl.NumberFormat(format, {
             style: asCurrency ? 'currency' : 'decimal',
             currency,

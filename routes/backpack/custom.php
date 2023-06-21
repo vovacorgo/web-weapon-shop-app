@@ -25,4 +25,9 @@ Route::group([
     Route::crud('property', 'PropertyCrudController');
     Route::crud('good-property', 'GoodPropertyCrudController');
     Route::crud('tag', 'TagCrudController');
+    Route::crud('country', 'CountryCrudController');
+    Route::crud('user-address', 'UserAddressCrudController');
+    Route::crud('good-tag', 'GoodTagCrudController');
+    Route::crud('state', 'StateCrudController');
+    Route::crud('city', 'CityCrudController');
 }); // this should be the absolute last line of this file

@@ -10,7 +10,7 @@ final class OrderPayment extends Enum
 {
     public const CASH = 'cash';
 
-    public const STRIPE = 'stripe';
+//    public const STRIPE = 'stripe';
 
     public const BANK_TRANSFER = 'bank_transfer';
 }

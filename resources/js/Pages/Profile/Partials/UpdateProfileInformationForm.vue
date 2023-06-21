@@ -16,8 +16,7 @@ const props = defineProps({
 const { user } = reactive(usePage().props);
 
 const form = useForm({
-    first_name: user.first_name,
-    last_name: user.last_name,
+    name: user.name,
     email: user.email,
     phone: user.phone,
     birth_date: user.birth_date,
@@ -43,29 +42,15 @@ const form = useForm({
                     id="first_name"
                     type="text"
                     class="mt-1 block w-full"
-                    v-model="form.first_name"
+                    v-model="form.name"
                     required
                     autofocus
                     autocomplete="first_name"
                 />
 
-                <InputError class="mt-2" :message="form.errors.first_name" />
+                <InputError class="mt-2" :message="form.errors.name" />
             </div>
 
-            <div>
-                <InputLabel for="last_name" value="Last Name" />
-
-                <TextInput
-                    id="last_name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    v-model="form.last_name"
-                    required
-                    autocomplete="last_name"
-                />
-
-                <InputError class="mt-2" :message="form.errors.last_name" />
-            </div>
 
             <div>
                 <InputLabel for="email" value="Email" />
@@ -119,9 +104,10 @@ const form = useForm({
                         tabindex: 0,
                     }"
                     :input-options="{
-                        placeholder: 'Phone number',
+                        placeholder: 'Номер телефону',
                         styleClasses: '!rounded-lg h-[42px] dark:bg-gray-900 dark:text-gray-300',
                         showDialCode: true,
+
                     }"
                     auto-format
                     auto-default-country

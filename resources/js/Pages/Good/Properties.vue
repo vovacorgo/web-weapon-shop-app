@@ -6,6 +6,10 @@ import Tabs from '@/Pages/Good/Tabs.vue';
 defineProps({
     good: Object,
 });
+
+
+
+
 </script>
 
 <template>
@@ -34,6 +38,7 @@ defineProps({
                                 {{ property.name }}
                             </dt>
                             <dd
+
                                 class="mt-1 basis-full text-sm text-gray-600 dark:text-gray-400 sm:col-span-2 sm:mt-0 sm:basis-1/2 md:basis-3/5 lg:basis-2/3"
                             >
                                 {{ property.value }}

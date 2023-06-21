@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,6 +15,7 @@ use Spatie\MediaLibrary\MediaCollections\Exceptions\FileCannotBeAdded;
 
 class Country extends Model implements HasMedia
 {
+    use CrudTrait;
     use HasFactory, SoftDeletes, InteractsWithMedia;
 
     protected $fillable = [

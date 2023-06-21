@@ -1,0 +1,15 @@
+# Use an official Node.js runtime as a parent image
+FROM node:18-alpine
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Install app dependencies
+COPY package*.json ./
+RUN npm install
+
+# Expose the port used by the Vite development server
+EXPOSE ${VITE_PORT:-5173}
+
+# Start the development server
+CMD [ "npm", "run", "dev" ]
