@@ -29,7 +29,7 @@ const onCategory = (category) => (hoveredCategoryId.value = category.id);
                             'relative inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none',
                         ]"
                     >
-                        Categories
+                        Категорії
                     </PopoverButton>
                 </div>
 
@@ -123,7 +123,7 @@ const onCategory = (category) => (hoveredCategoryId.value = category.id);
                                             <p
                                                 class="mt-1 text-sm text-gray-500 focus:text-gray-900 hover:text-gray-900 dark:text-gray-400 dark:focus:text-gray-100 dark:hover:text-gray-100"
                                             >
-                                                Shop now
+                                                Купуйте зарас
                                             </p>
                                         </div>
                                     </div>

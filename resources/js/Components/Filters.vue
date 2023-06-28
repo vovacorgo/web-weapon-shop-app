@@ -44,7 +44,7 @@ const sliderFormat = (value) => `${Math.round(value)} $`;
                         for="filters-price-from"
                         class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                     >
-                        From
+                        Від
                     </label>
 
                     <input
@@ -58,7 +58,7 @@ const sliderFormat = (value) => `${Math.round(value)} $`;
 
                 <div class="basis-1/3">
                     <label for="filters-price-to" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                        To
+                        До
                     </label>
 
                     <input
@@ -71,7 +71,7 @@ const sliderFormat = (value) => `${Math.round(value)} $`;
                 </div>
 
                 <secondary-button class="self-end" :disabled="filters.processing" @click="$emit('priceFilter')">
-                    Ok
+                    Ок
                 </secondary-button>
             </div>
 

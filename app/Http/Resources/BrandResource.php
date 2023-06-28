@@ -16,7 +16,7 @@ class BrandResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'url' => $this->url,
-//            'logo' => $this->logo,
+            'logo' => $this->logo,
 
             'goods' => GoodResource::collection($this->whenLoaded('goods')),
         ];

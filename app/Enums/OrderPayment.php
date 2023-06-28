@@ -8,9 +8,6 @@ use BenSampo\Enum\Enum;
 
 final class OrderPayment extends Enum
 {
-    public const CASH = 'cash';
-
-//    public const STRIPE = 'stripe';
-
-    public const BANK_TRANSFER = 'bank_transfer';
+    public const CASH = 'Оплата по отриманню';
+    public const BANK_TRANSFER = 'Банківський переказ';
 }

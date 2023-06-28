@@ -27,10 +27,10 @@ class GoodResource extends JsonResource
             'updated_at' => $this->updated_at,
 
             'preview' => $this->preview,
-//            'slides' => $this->getMedia('goods')
-//                ->pluck('file_name', 'id')
-//                ->map(fn (string $item, $key) => url("/storage/$key/$item"))
-//                ->all(),
+            'slides' => $this->getMedia('goods')
+                ->pluck('file_name', 'id')
+                ->map(fn (string $item, $key) => url("/storage/$key/$item"))
+                ->all(),
 
             'category_id' => $this->category_id,
             'brand_id' => $this->brand_id,

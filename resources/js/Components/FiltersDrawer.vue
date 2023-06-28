@@ -40,7 +40,7 @@ const propertyFilter = (value) => {
 <template>
     <secondary-button class="lg:hidden" @click="show">
         <font-awesome-icon :icon="['fas', 'filter']" class="mr-1" />
-        FILTERS
+        ФІЛЬТРИ
     </secondary-button>
 
     <div
@@ -51,7 +51,7 @@ const propertyFilter = (value) => {
     >
         <h5 class="mb-4 inline-flex items-center text-lg font-medium text-gray-500 dark:text-gray-400">
             <font-awesome-icon :icon="['fas', 'filter']" class="mr-2" />
-            Filters
+            Фільтри
         </h5>
         <button
             @click="hide"

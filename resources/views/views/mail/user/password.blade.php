@@ -1,8 +1,8 @@
 <x-mail::message>
-# Your account has been successfully created! Your password: {{ $password }}
+    # Ваш обліковий запис успішно створено! Ваш пароль: {{ $password }}
 
 <x-mail::button :url="route('login')"> Log In </x-mail::button>
 
-Thanks for registration,<br />
+Дякую за реєстрацію,<br />
 {{ config('app.name') }}
 </x-mail::message>

@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class City extends Model
 {
-    use CrudTrait;
+
     use HasFactory;
 
     protected $fillable = ['uuid', 'state_id', 'name', 'old_name', 'type', 'is_state_center', 'big_city', 'is_active'];

@@ -38,7 +38,7 @@ const bulkDelete = () => router.delete(route('cart.bulk-delete'));
         <div
             class="flex items-center justify-between border-b border-gray-200 px-4 py-3 text-gray-800 dark:border-gray-700 dark:text-gray-200 md:px-6"
         >
-            <h3 class="text-2xl sm:text-3xl">Cart</h3>
+            <h3 class="text-2xl sm:text-3xl">Корзина</h3>
             <button class="hover:opacity-70" @click="$emit('close')">
                 <font-awesome-icon :icon="['fas', 'xmark']" size="xl" />
             </button>
@@ -50,11 +50,11 @@ const bulkDelete = () => router.delete(route('cart.bulk-delete'));
                 <div class="mb-4 flex flex-col justify-between space-y-4 sm:flex-row sm:space-y-0">
                     <secondary-button @click="$emit('close')">
                         <font-awesome-icon :icon="['fas', 'cart-plus']" class="mr-2" />
-                        Continue shopping
+                        Продовжити покупки
                     </secondary-button>
                     <danger-button @click="bulkDelete">
                         <font-awesome-icon :icon="['fas', 'trash-can']" class="mr-2" />
-                        Clear all
+                        Очистити все
                     </danger-button>
                 </div>
                 <ul class="md:mb-6">
@@ -143,7 +143,7 @@ const bulkDelete = () => router.delete(route('cart.bulk-delete'));
                         </div>
                         <primary-button class="self-end" type="button" @click="router.get(route('checkout.index'))">
                             <font-awesome-icon :icon="['fas', 'credit-card']" class="mr-2" />
-                            <span>Proceed to checkout</span>
+                            <span>Перейти до замовлення</span>
                         </primary-button>
                     </div>
                 </div>
@@ -159,9 +159,9 @@ const bulkDelete = () => router.delete(route('cart.bulk-delete'));
                 <h4
                     class="mb-4 text-xl font-medium uppercase tracking-wide text-gray-900 dark:text-gray-200 md:text-2xl"
                 >
-                    Cart is empty
+                    Корзина пуста
                 </h4>
-                <p class="text-sm text-gray-800 dark:text-gray-400">But it's never too late to fix it :)</p>
+                <p class="text-sm text-gray-800 dark:text-gray-400">Але не пізно виправити це :)</p>
             </div>
         </div>
     </Modal>

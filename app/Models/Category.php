@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +14,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Category extends Model implements HasMedia
 {
-    use CrudTrait;
     use HasFactory, SoftDeletes, InteractsWithMedia;
 
     protected $fillable = ['title', 'slug', 'parent_id', 'is_active', 'is_navigational', 'manual_url'];
@@ -81,8 +79,8 @@ class Category extends Model implements HasMedia
         return 'slug';
     }
 
-//    protected function thumbnail(): Attribute
-//    {
-//        return Attribute::get(fn () => $this->hasMedia('categories') ? $this->getFirstMediaUrl('categories') : url('static/not-found.svg'));
-//    }
+    protected function thumbnail(): Attribute
+    {
+        return Attribute::get(fn () => $this->hasMedia('categories') ? $this->getFirstMediaUrl('categories') : url('static/not-found.svg'));
+    }
 }

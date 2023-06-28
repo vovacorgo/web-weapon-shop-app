@@ -100,7 +100,7 @@ const searchGoods = () => form.get(route('goods.search'));
                                     'relative inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none lg:hidden',
                                 ]"
                             >
-                                <span>Categories</span>
+                                <span>Категорії</span>
                             </button>
                         </div>
                     </div>
@@ -118,7 +118,7 @@ const searchGoods = () => form.get(route('goods.search'));
                                 type="text"
                                 id="goods-search"
                                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500 sm:text-sm"
-                                placeholder="I'm looking for..."
+                                placeholder="Шукаю..."
                             />
                         </div>
                         <div class="ml-2">
@@ -133,7 +133,7 @@ const searchGoods = () => form.get(route('goods.search'));
                             role="tooltip"
                             class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700"
                         >
-                            <span>Toggle {{ isDark ? 'light' : 'dark' }} mode</span>
+                            <span>Ввімкнути {{ isDark ? 'light' : 'dark' }} режим</span>
                             <div class="tooltip-arrow" data-popper-arrow></div>
                         </div>
                         <button
@@ -176,7 +176,7 @@ const searchGoods = () => form.get(route('goods.search'));
                         <!-- Settings Dropdown -->
                         <Dropdown v-if="user" class="ml-4 hidden sm:flex">
                             <template #trigger>
-                                <button class="inline-flex focus:outline-none" title="Profile">
+                                <button class="inline-flex focus:outline-none" title="Профіль">
                                     <img
                                         :src="user.avatar"
                                         :alt="fullName"
@@ -194,10 +194,10 @@ const searchGoods = () => form.get(route('goods.search'));
                                     <p class="truncate text-gray-600 dark:text-gray-400">{{ user.email }}</p>
                                 </div>
                                 <DropdownLink :href="route('profile.personal-information.edit')">
-                                    Profile
+                                    Профіль
                                 </DropdownLink>
                                 <div class="border-t border-gray-200 dark:border-gray-600" />
-                                <DropdownLink :href="route('logout')" method="post" as="button"> Log Out </DropdownLink>
+                                <DropdownLink :href="route('logout')" method="post" as="button"> Вийти </DropdownLink>
                             </template>
                         </Dropdown>
 
@@ -206,13 +206,13 @@ const searchGoods = () => form.get(route('goods.search'));
                                 :href="route('register')"
                                 class="mx-2 inline-flex items-center justify-center rounded-lg bg-gray-50 px-3 py-2.5 text-sm font-semibold uppercase tracking-wider text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                             >
-                                Sign Up
+                                Зареєструйтесь
                             </Link>
                             <Link
                                 :href="route('login')"
                                 class="rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 px-3 py-2.5 text-center text-sm font-semibold uppercase tracking-wider text-white focus:outline-none focus:ring-4 focus:ring-blue-300 hover:bg-gradient-to-bl dark:focus:ring-blue-800"
                             >
-                                Log In
+                                Увійдіть
                             </Link>
                         </div>
                     </div>
@@ -236,7 +236,7 @@ const searchGoods = () => form.get(route('goods.search'));
             <div :class="{ block: showingNavigationDropdown, hidden: !showingNavigationDropdown }" class="sm:hidden">
                 <div class="space-y-1 pb-3 pt-2">
                     <ResponsiveNavLink :href="route('index.dashboard')" :active="route().current('index.dashboard')">
-                        Dashboard
+                        Дешбоард
                     </ResponsiveNavLink>
                     <button
                         @click="showingResponsiveCategories = true"
@@ -247,7 +247,7 @@ const searchGoods = () => form.get(route('goods.search'));
                             'block w-full border-l-4 py-2 pl-3 pr-4 text-left text-base font-medium transition duration-150 ease-in-out focus:outline-none',
                         ]"
                     >
-                        <span>Categories</span>
+                        <span>Категорії</span>
                     </button>
                 </div>
 
@@ -267,10 +267,10 @@ const searchGoods = () => form.get(route('goods.search'));
 
                     <div class="mt-3 space-y-1">
                         <ResponsiveNavLink :href="route('profile.personal-information.edit')">
-                            Profile
+                            Профіль
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('logout')" method="post" as="button">
-                            Log Out
+                            Вихід
                         </ResponsiveNavLink>
                     </div>
                 </div>

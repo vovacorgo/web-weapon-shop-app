@@ -23,7 +23,7 @@ defineProps({
             <Sidebar />
             <div class="w-full space-y-4">
                 <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200 md:leading-[64px]">
-                    Personal Information
+                    Особиста інформація
                 </h2>
                 <div class="bg-white p-4 shadow dark:bg-gray-800 sm:rounded-lg sm:p-8">
                     <UpdateProfileInformationForm

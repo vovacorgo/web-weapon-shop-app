@@ -82,7 +82,7 @@ const trimPageRange = (pageRange) => {
                 class="mr-3 inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
             >
                 <font-awesome-icon :icon="['fas', 'arrow-left-long']" class="mr-2 h-4 w-4" />
-                Previous
+                Попередня
             </Link>
             <button
                 v-else
@@ -90,14 +90,14 @@ const trimPageRange = (pageRange) => {
                 disabled
             >
                 <font-awesome-icon :icon="['fas', 'arrow-left-long']" class="mr-2 h-4 w-4" />
-                Previous
+                Попередня
             </button>
             <Link
                 v-if="nextPage"
                 :href="nextPage"
                 class="inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
             >
-                Next
+                Наступна
                 <font-awesome-icon :icon="['fas', 'arrow-right-long']" class="ml-2 h-4 w-4" />
             </Link>
             <button
@@ -105,7 +105,7 @@ const trimPageRange = (pageRange) => {
                 class="inline-flex cursor-not-allowed items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400"
                 disabled
             >
-                Next
+                Наступна
                 <font-awesome-icon :icon="['fas', 'arrow-right-long']" class="ml-2 h-4 w-4" />
             </button>
         </div>
@@ -115,16 +115,16 @@ const trimPageRange = (pageRange) => {
 
         <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <p v-if="meta.total > 0" class="text-sm text-gray-700 dark:text-gray-400">
-                Showing
+                Показано
                 <span class="font-semibold text-gray-900 dark:text-white">{{ meta.from }}</span>
                 to
                 <span class="font-semibold text-gray-900 dark:text-white">{{ meta.to }}</span>
                 of
                 <span class="font-semibold text-gray-900 dark:text-white">{{ meta.total }}</span>
-                results
+                результати
             </p>
             <p v-else class="mb-0 text-sm leading-5 text-gray-700 dark:text-gray-400">
-                No results found <span class="font-mono">¯\_(ツ)_/¯</span>
+                Не знайдено результатів <span class="font-mono">¯\_(ツ)_/¯</span>
             </p>
             <nav v-if="pageLinks.length > 1">
                 <ul class="inline-flex items-center -space-x-px">

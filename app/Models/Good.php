@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use App\Enums\GoodStatus;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -18,7 +17,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Good extends Model implements HasMedia
 {
-    use CrudTrait;
+
     use HasFactory, SoftDeletes, InteractsWithMedia;
 
     protected $fillable = [

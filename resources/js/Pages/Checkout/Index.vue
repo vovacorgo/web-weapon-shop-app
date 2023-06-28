@@ -89,7 +89,7 @@ const confirmOrder = () => {
 
     <AuthenticatedLayout>
         <div class="px-4 py-12 sm:px-6 lg:px-8">
-            <h1 class="text-4xl font-extrabold dark:text-white">Checkout</h1>
+            <h1 class="text-4xl font-extrabold dark:text-white">Замовлення</h1>
             <div class="flex flex-col justify-between lg:flex-row lg:space-x-10">
                 <div class="mt-10 flex flex-col space-y-6 lg:basis-3/4">
                     <div class="flex flex-col">
@@ -99,7 +99,7 @@ const confirmOrder = () => {
                             >
                                 1
                             </span>
-                            <p class="text-gray-700 dark:text-gray-400">Your contact details</p>
+                            <p class="text-gray-700 dark:text-gray-400">Ваші контактні дані</p>
                         </div>
                         <p class="mt-4 pl-10 text-sm text-gray-500 dark:text-gray-300">
                             {{ `${full_name}, ${email}` }}{{ phone ? `, ${phone}` : null }}
@@ -112,17 +112,17 @@ const confirmOrder = () => {
                             >
                                 2
                             </span>
-                            <p class="text-gray-700 dark:text-gray-400">Good items</p>
+                            <p class="text-gray-700 dark:text-gray-400">Товари</p>
                         </div>
 
                         <div class="relative mt-4 overflow-x-auto">
                             <table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs uppercase text-gray-900 dark:text-gray-400">
                                     <tr>
-                                        <th scope="col" class="px-6 py-3">Item</th>
-                                        <th scope="col" class="px-6 py-3 text-center">Price</th>
-                                        <th scope="col" class="px-6 py-3 text-center">Quantity</th>
-                                        <th scope="col" class="px-6 py-3 text-center">Amount</th>
+                                        <th scope="col" class="px-6 py-3">Товар</th>
+                                        <th scope="col" class="px-6 py-3 text-center">Ціна</th>
+                                        <th scope="col" class="px-6 py-3 text-center">Кількість</th>
+                                        <th scope="col" class="px-6 py-3 text-center">Вартість</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -185,7 +185,7 @@ const confirmOrder = () => {
                             >
                                 3
                             </span>
-                            <p class="text-gray-700 dark:text-gray-400">Delivery method</p>
+                            <p class="text-gray-700 dark:text-gray-400">Метод доставки</p>
                         </div>
                         <div
                             class="mt-4 flex items-center justify-between px-10"
@@ -220,7 +220,7 @@ const confirmOrder = () => {
                             >
                                 4
                             </span>
-                            <p class="text-gray-700 dark:text-gray-400">Payment method</p>
+                            <p class="text-gray-700 dark:text-gray-400">Метод оплати</p>
                         </div>
                         <div
                             class="mt-4 flex items-center px-10"
@@ -249,17 +249,17 @@ const confirmOrder = () => {
                 <div
                     class="mt-10 flex max-h-80 w-full flex-col rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800 lg:max-w-xs"
                 >
-                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Total</h5>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Всьогл</h5>
                     <div class="mt-4 flex justify-between text-sm">
-                        <p class="text-gray-900 dark:text-gray-300">{{ cart.count }} goods for the amount</p>
+                        <p class="text-gray-900 dark:text-gray-300">{{ cart.count }} товарів на суму</p>
                         <p class="text-gray-900 dark:text-gray-300">{{ formatMoney(cart.total) }}</p>
                     </div>
                     <div class="mt-2 flex justify-between text-sm">
-                        <p class="text-gray-900 dark:text-gray-300">Delivery cost</p>
+                        <p class="text-gray-900 dark:text-gray-300">Вартість доставки</p>
                         <p class="text-gray-900 dark:text-gray-300">{{ formatMoney(deliveryCost) }}</p>
                     </div>
                     <div v-if="promoCode.data" class="mt-2 flex justify-between text-sm">
-                        <p class="text-gray-900 dark:text-gray-300">Applied promo code</p>
+                        <p class="text-gray-900 dark:text-gray-300">Застосований промокод</p>
                         <p class="text-red-600 dark:text-red-500">
                             -{{
                                 formatMoney(
@@ -269,11 +269,11 @@ const confirmOrder = () => {
                         </p>
                     </div>
                     <div class="mt-2 flex justify-between border-y border-gray-200 py-2 dark:border-gray-700">
-                        <p class="text-gray-900 dark:text-gray-300">Total cost</p>
+                        <p class="text-gray-900 dark:text-gray-300">Загальна вартість</p>
                         <p class="text-gray-900 dark:text-gray-300">{{ formatMoney(totalCostPromoCode) }}</p>
                     </div>
                     <secondary-button class="mt-8 w-full lg:mt-auto" @click="promoCode.modal = true">
-                        Apply promo code
+                        Застосовати промокод
                     </secondary-button>
                     <primary-button class="mt-4 w-full" @click.prevent="confirmOrder">Confirm order</primary-button>
                 </div>
@@ -284,7 +284,7 @@ const confirmOrder = () => {
     <Modal :show="promoCode.modal" @close="promoCode.modal = false">
         <form class="p-6" @submit.prevent="verifyPromoCode">
             <div class="flex justify-between text-gray-900 dark:text-white">
-                <h5 class="text-xl font-medium">Apply promo code</h5>
+                <h5 class="text-xl font-medium">Застосовати промокод</h5>
                 <font-awesome-icon
                     :icon="['fas', 'xmark']"
                     size="xl"
@@ -306,8 +306,8 @@ const confirmOrder = () => {
             </div>
 
             <div class="flex space-x-4">
-                <secondary-button class="w-full" @click="promoCode.modal = false">Cancel</secondary-button>
-                <primary-button class="w-full" :disabled="promoCode.loading">Apply</primary-button>
+                <secondary-button class="w-full" @click="promoCode.modal = false">Відміна</secondary-button>
+                <primary-button class="w-full" :disabled="promoCode.loading">Прийняти</primary-button>
             </div>
         </form>
     </Modal>

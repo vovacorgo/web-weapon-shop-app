@@ -4,7 +4,7 @@ import { Head, Link, usePage } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <Head title="Dashboard" />
+    <Head title="Головна" />
 
     <AuthenticatedLayout>
         <div class="px-4 py-12 sm:px-6 lg:px-8">
@@ -43,7 +43,7 @@ import { Head, Link, usePage } from '@inertiajs/vue3';
                             <p
                                 class="mt-1 text-center text-sm text-gray-500 focus:text-gray-900 hover:text-gray-900 dark:text-gray-400 dark:focus:text-gray-100 dark:hover:text-gray-100"
                             >
-                                Shop now
+                                Купуйте вже
                             </p>
                         </div>
                     </div>

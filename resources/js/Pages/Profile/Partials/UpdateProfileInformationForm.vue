@@ -16,7 +16,8 @@ const props = defineProps({
 const { user } = reactive(usePage().props);
 
 const form = useForm({
-    name: user.name,
+    first_name: user.first_name,
+    last_name: user.last_name,
     email: user.email,
     phone: user.phone,
     birth_date: user.birth_date,
@@ -27,33 +28,47 @@ const form = useForm({
 <template>
     <section>
         <header>
-            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Profile Information</h2>
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Інформація про профіль</h2>
 
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                Update your account's profile information and email address.
+                Оновіть інформацію про профіль облікового запису та адресу електронної пошти.
             </p>
         </header>
 
         <form @submit.prevent="form.patch(route('profile.personal-information.update'))" class="mt-6 space-y-6">
             <div>
-                <InputLabel for="first_name" value="First Name" />
+                <InputLabel for="first_name" value="Ім'я та прізвище" />
 
                 <TextInput
                     id="first_name"
                     type="text"
                     class="mt-1 block w-full"
-                    v-model="form.name"
+                    v-model="form.first_name"
                     required
                     autofocus
                     autocomplete="first_name"
                 />
 
-                <InputError class="mt-2" :message="form.errors.name" />
+                <InputError class="mt-2" :message="form.errors.first_name" />
             </div>
 
+            <div>
+                <InputLabel for="last_name" value="По батькові" />
+
+                <TextInput
+                    id="last_name"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.last_name"
+                    required
+                    autocomplete="last_name"
+                />
+
+                <InputError class="mt-2" :message="form.errors.last_name" />
+            </div>
 
             <div>
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="email" value="Пошта" />
 
                 <TextInput
                     id="email"
@@ -69,14 +84,14 @@ const form = useForm({
 
             <div v-if="props.mustVerifyEmail && user.email_verified_at === null">
                 <p class="mt-2 text-sm text-gray-800 dark:text-gray-200">
-                    Your email address is unverified.
+                    Ваша електронна адреса не підтверджена.
                     <Link
                         :href="route('verification.send')"
                         method="post"
                         as="button"
                         class="rounded-md text-sm text-gray-600 underline focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 hover:text-gray-900 dark:text-gray-400 dark:focus:ring-offset-gray-800 dark:hover:text-gray-100"
                     >
-                        Click here to re-send the verification email.
+                        Натисніть тут, щоб повторно надіслати лист з підтвердженням.
                     </Link>
                 </p>
 
@@ -84,12 +99,12 @@ const form = useForm({
                     v-show="props.status === 'verification-link-sent'"
                     class="mt-2 text-sm font-medium text-green-600 dark:text-green-400"
                 >
-                    A new verification link has been sent to your email address.
+                    На вашу електронну адресу надіслано нове посилання для підтвердження.
                 </div>
             </div>
 
             <div>
-                <InputLabel for="phone" value="Phone Number" />
+                <InputLabel for="phone" value="Номер телефону" />
 
                 <vue-tel-input
                     v-model="form.phone"
@@ -107,7 +122,6 @@ const form = useForm({
                         placeholder: 'Номер телефону',
                         styleClasses: '!rounded-lg h-[42px] dark:bg-gray-900 dark:text-gray-300',
                         showDialCode: true,
-
                     }"
                     auto-format
                     auto-default-country
@@ -118,10 +132,10 @@ const form = useForm({
             </div>
 
             <div class="flex items-center gap-4">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
+                <PrimaryButton :disabled="form.processing">Зберегти</PrimaryButton>
 
                 <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" class="transition ease-in-out">
-                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">Saved.</p>
+                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">Збережено.</p>
                 </Transition>
             </div>
         </form>

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -15,7 +14,6 @@ use Spatie\MediaLibrary\MediaCollections\Exceptions\FileCannotBeAdded;
 
 class Country extends Model implements HasMedia
 {
-    use CrudTrait;
     use HasFactory, SoftDeletes, InteractsWithMedia;
 
     protected $fillable = [
@@ -37,8 +35,7 @@ class Country extends Model implements HasMedia
     ];
 
     public static array $validCountries = [
-        'UA', 'PL', 'EE', 'LV', 'LT', 'CZ',
-        'DK', 'US', 'CA', 'GB', 'DE', 'FR', 'NO',
+        'UA', 'PL', 'EE', 'LV', 'LT', 'CZ', 'DK', 'US', 'CA', 'GB', 'DE', 'FR', 'NO',
         'AU', 'AT', 'BE', 'BG', 'ES', 'FI', 'GR', 'IS', 'IE', 'IL', 'IT', 'JP', 'LU',
         'MD', 'MA', 'NL', 'NZ', 'PT', 'RO', 'SA', 'SK', 'SI', 'KR', 'SE', 'CH', 'TR',
     ];

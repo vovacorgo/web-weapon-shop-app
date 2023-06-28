@@ -45,7 +45,7 @@ const props = defineProps({
                             <p
                                 class="mt-1 text-center text-sm text-gray-500 focus:text-gray-900 hover:text-gray-900 dark:text-gray-400 dark:focus:text-gray-100 dark:hover:text-gray-100"
                             >
-                                Shop now
+                               Купуйте сьогодні
                             </p>
                         </div>
                         <ul class="my-2 space-y-2" role="list">

@@ -120,22 +120,22 @@ const onChangeDefaultAddress = (event) => {
     <section>
         <header class="flex flex-col justify-between space-y-4 sm:flex-row sm:items-center sm:space-y-0">
             <div>
-                <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Delivery Addresses</h2>
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Manage your saved delivery addresses</p>
+                <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Адреси доставки</h2>
+                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Керування збереженими адресами доставки</p>
             </div>
-            <secondary-button class="w-full sm:w-auto" @click="addressModal = true">Add address</secondary-button>
+            <secondary-button class="w-full sm:w-auto" @click="addressModal = true">Додати адресу</secondary-button>
         </header>
 
         <div v-if="addresses.length" class="mt-4 lg:max-w-lg">
             <label for="addresses" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                Default delivery address
+                Адреса доставки за замовчуванням
             </label>
             <select
                 @change="onChangeDefaultAddress"
                 id="addresses"
                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-purple-500 focus:ring-purple-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-purple-500 dark:focus:ring-purple-500"
             >
-                <option disabled :selected="!defaultAddress">Choose the address</option>
+                <option disabled :selected="!defaultAddress">Виберіть адресу</option>
                 <option
                     v-for="address in addresses"
                     :key="address.id"
@@ -156,13 +156,13 @@ const onChangeDefaultAddress = (event) => {
                 <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="p-4">#</th>
-                        <th scope="col" class="p-4">Country</th>
-                        <th scope="col" class="p-4">State</th>
-                        <th scope="col" class="p-4">City</th>
-                        <th scope="col" class="p-4">Street</th>
-                        <th scope="col" class="p-4">House</th>
-                        <th scope="col" class="p-4">Flat</th>
-                        <th scope="col" class="p-4">Postal Code</th>
+                        <th scope="col" class="p-4">Країна</th>
+                        <th scope="col" class="p-4">Область/штат</th>
+                        <th scope="col" class="p-4">Місто</th>
+                        <th scope="col" class="p-4">Вулиця</th>
+                        <th scope="col" class="p-4">Будинок</th>
+                        <th scope="col" class="p-4">Квартира</th>
+                        <th scope="col" class="p-4">Поштовий код</th>
                         <th scope="col" class="p-4"></th>
                     </tr>
                 </thead>
@@ -219,10 +219,10 @@ const onChangeDefaultAddress = (event) => {
             <div class="p-6">
                 <div class="flex items-center justify-between border-b border-gray-200 pb-2 dark:border-gray-700">
                     <div class="flex flex-col">
-                        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">New Delivery Address</h2>
+                        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">Нова адреса доставки</h2>
 
                         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                            Fill in all available fields to add a new delivery address
+                            Заповніть усі доступні поля, щоб додати нову адресу доставки
                         </p>
                     </div>
 
@@ -245,7 +245,7 @@ const onChangeDefaultAddress = (event) => {
                                     :clear-on-select="false"
                                     @select="onCountrySelected"
                                     class="mt-1"
-                                    placeholder="Select the country"
+                                    placeholder="Виберіть країну"
                                     label="name"
                                     track-by="id"
                                 />
@@ -253,7 +253,7 @@ const onChangeDefaultAddress = (event) => {
                                 <InputError class="mt-2" :message="form.errors.country_id" />
                             </div>
                             <div class="basis-1/3">
-                                <InputLabel for="state" value="State" />
+                                <InputLabel for="state" value="Штат/область" />
 
                                 <multiselect
                                     id="state"
@@ -265,7 +265,7 @@ const onChangeDefaultAddress = (event) => {
                                     :loading="isLoading('state')"
                                     @select="onStateSelected"
                                     class="mt-1"
-                                    placeholder="Select the state"
+                                    placeholder="Виберіть Штат/область"
                                     label="name"
                                     track-by="id"
                                 />
@@ -273,7 +273,7 @@ const onChangeDefaultAddress = (event) => {
                                 <InputError class="mt-2" :message="form.errors.state_id" />
                             </div>
                             <div class="basis-1/3">
-                                <InputLabel for="city" value="City" />
+                                <InputLabel for="city" value="Місто" />
 
                                 <multiselect
                                     id="city"
@@ -285,7 +285,7 @@ const onChangeDefaultAddress = (event) => {
                                     :close-on-select="true"
                                     :clear-on-select="false"
                                     class="mt-1"
-                                    placeholder="Select the city"
+                                    placeholder="Виберіть місто"
                                     label="name"
                                     track-by="id"
                                 />
@@ -295,7 +295,7 @@ const onChangeDefaultAddress = (event) => {
                         </div>
                         <div class="flex w-full flex-col space-y-4 lg:flex-row lg:space-x-4 lg:space-y-0">
                             <div class="basis-2/5">
-                                <InputLabel for="street" value="Street" />
+                                <InputLabel for="street" value="Вулиця" />
 
                                 <TextInput
                                     id="street"
@@ -309,7 +309,7 @@ const onChangeDefaultAddress = (event) => {
                                 <InputError class="mt-2" :message="form.errors.street" />
                             </div>
                             <div class="basis-1/5">
-                                <InputLabel for="house" value="House" />
+                                <InputLabel for="house" value="Будинок" />
 
                                 <TextInput
                                     id="house"
@@ -323,7 +323,7 @@ const onChangeDefaultAddress = (event) => {
                                 <InputError class="mt-2" :message="form.errors.house" />
                             </div>
                             <div class="basis-1/5">
-                                <InputLabel for="flat" value="Flat" />
+                                <InputLabel for="flat" value="Квартира" />
 
                                 <TextInput
                                     id="flat"
@@ -336,7 +336,7 @@ const onChangeDefaultAddress = (event) => {
                                 <InputError class="mt-2" :message="form.errors.flat" />
                             </div>
                             <div class="basis-1/5">
-                                <InputLabel for="postal_code" value="Postal Code" />
+                                <InputLabel for="postal_code" value="Поштовий код" />
 
                                 <TextInput
                                     id="postal_code"
@@ -350,8 +350,8 @@ const onChangeDefaultAddress = (event) => {
                             </div>
                         </div>
                         <div class="flex items-center justify-between">
-                            <danger-button :disabled="form.processing" @click="closeAddressModal">Cancel</danger-button>
-                            <primary-button :disabled="form.processing">Save</primary-button>
+                            <danger-button :disabled="form.processing" @click="closeAddressModal">Скасувати</danger-button>
+                            <primary-button :disabled="form.processing">Зберегти</primary-button>
                         </div>
                     </form>
                 </div>

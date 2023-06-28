@@ -12,9 +12,8 @@ class OrderPayment extends Model
 
 
     public static array $types = [
-        'Payment upon receipt of goods',
-        'Pay now',
-        'PrivatPay',
+        'Оплата після отримання',
+        'Оплата картою',
 
     ];
 }

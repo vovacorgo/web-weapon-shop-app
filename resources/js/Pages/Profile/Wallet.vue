@@ -108,7 +108,7 @@ const closeDeletionModal = () => {
             <Sidebar />
             <div class="w-full space-y-4">
                 <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200 md:leading-[64px]">
-                    Wallet
+                    Гаманець
                 </h2>
                 <div class="bg-white p-4 shadow dark:bg-gray-800 sm:rounded-lg sm:p-8">
                     <credit-card v-if="card" :labels="card" :isNumberMasked="true" :randomBackgrounds="true" />
@@ -164,7 +164,7 @@ const closeDeletionModal = () => {
                                         for="card-element"
                                         class="text-lg font-medium text-gray-900 dark:text-gray-100"
                                     >
-                                        Credit Card Information
+                                        Інформація по карті
                                     </label>
                                     <div id="card-element"></div>
                                     <primary-button
@@ -173,7 +173,7 @@ const closeDeletionModal = () => {
                                         @click="submit"
                                     >
                                         <font-awesome-icon :icon="['fas', 'credit-card']" />
-                                        {{ isCardExists ? 'Update' : 'Connect' }} Card
+                                        {{ isCardExists ? 'Update' : 'Connect' }} Карта
                                     </primary-button>
                                 </div>
                             </div>

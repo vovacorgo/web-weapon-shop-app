@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\SendVerifyWithQueueNotification;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasName;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -12,13 +14,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail, FilamentUser, HasName, HasMedia
 {
-    use CrudTrait;
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, Billable;
-    use HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, InteractsWithMedia, HasRoles, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -26,7 +30,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'birth_date',
         'gender',
         'status',
@@ -36,17 +41,15 @@ class User extends Authenticatable
         'password',
         'trial_ends_at',
     ];
-    public const ADMIN_EMAIL = 'himpolink@gmail.com';
+
+    protected $appends = ['avatar', 'full_name'];
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = ['password', 'remember_token'];
 
     /**
      * The attributes that should be cast.
@@ -56,6 +59,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public const ADMIN_EMAIL = 'blados@com.com';
+
+    public function sendEmailVerificationNotification(): void
+    {
+        $this->notify(new SendVerifyWithQueueNotification);
+    }
+
     public function addresses(): HasMany
     {
         return $this->hasMany(UserAddress::class);
@@ -95,13 +106,30 @@ class User extends Authenticatable
     {
         return $this->email === $this::ADMIN_EMAIL && $this->hasVerifiedEmail();
     }
-//    public function name(): Attribute
-//    {
-//        return Attribute::get(fn ($value) => $this->name);
-//    }
 
-    public function getName(): string
+    public function fullName(): Attribute
     {
-        return $this->name;
+        return Attribute::get(fn ($value) => "$this->first_name $this->last_name");
+    }
+
+    public function getFilamentName(): string
+    {
+        return "$this->first_name $this->last_name";
+    }
+
+    public function avatar(): Attribute
+    {
+        return Attribute::get(fn ($value) => $this->getFirstMediaUrl('avatars'));
+    }
+
+    /**
+     * @throws FileDoesNotExist|FileIsTooBig
+     */
+    public function addAvatarMedia(string $url, string $collectionName = 'avatars', string $diskName = 'public'): void
+    {
+        $this->clearMediaCollection($collectionName)
+            ->addMediaFromUrl($url)
+            ->sanitizingFileName(fn ($fileName) => strtolower(str_replace(['#', '/', '\\', ' '], '-', $fileName)))
+            ->toMediaCollection($collectionName, $diskName);
     }
 }

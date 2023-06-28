@@ -42,9 +42,9 @@ const closeReviewModal = () => (reviewModal.value = false);
                         <h1
                             class="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-3xl font-bold text-transparent"
                         >
-                            Leave your review about this product
+                            Залиште свій відгук про цей продукт
                         </h1>
-                        <secondary-button @click="reviewModal = true">Leave a review</secondary-button>
+                        <secondary-button @click="reviewModal = true">Залишити відгук</secondary-button>
                     </div>
 
                     <Modal :show="reviewModal" @close="closeReviewModal">
@@ -93,8 +93,8 @@ const closeReviewModal = () => (reviewModal.value = false);
                             </div>
 
                             <div class="flex space-x-4">
-                                <secondary-button class="w-full" @click="closeReviewModal">Cancel</secondary-button>
-                                <primary-button class="w-full">Submit review</primary-button>
+                                <secondary-button class="w-full" @click="closeReviewModal">Скасувати</secondary-button>
+                                <primary-button class="w-full">Надіслати відгук</primary-button>
                             </div>
                         </div>
                     </Modal>
@@ -152,7 +152,7 @@ const closeReviewModal = () => (reviewModal.value = false);
                                             :icon="['fas', 'check']"
                                             class="text-green-500 dark:text-green-400"
                                         />
-                                        <span class="ml-2">Advantages:</span>
+                                        <span class="ml-2">Переваги:</span>
                                     </h6>
                                     <blockquote
                                         class="my-4 border-l-4 border-gray-400 bg-gray-100 p-4 dark:border-gray-600 dark:bg-gray-900"
@@ -170,7 +170,7 @@ const closeReviewModal = () => (reviewModal.value = false);
                                             :icon="['fas', 'xmark']"
                                             class="text-red-600 dark:text-red-500"
                                         />
-                                        <span class="ml-2">Disadvantages:</span>
+                                        <span class="ml-2">Недоліки:</span>
                                     </h6>
                                     <blockquote
                                         class="my-4 border-l-4 border-gray-400 bg-gray-100 p-4 dark:border-gray-600 dark:bg-gray-900"

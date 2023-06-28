@@ -17,28 +17,28 @@ const linkClasses = reactive({
 const routes = reactive([
     {
         name: 'profile.orders',
-        title: 'Orders',
+        title: 'Замовлення',
         icon: 'rectangle-list',
         count: badges.orders,
     },
-    {
-        name: 'profile.wishlist',
-        title: 'Wishlist',
-        icon: 'heart',
-    },
-    {
-        name: 'profile.wallet',
-        title: 'Wallet',
-        icon: 'credit-card',
-    },
-    {
-        name: 'profile.messages',
-        title: 'Messages',
-        icon: 'comments',
-    },
+    // {
+    //     name: 'profile.wishlist',
+    //     title: 'Wishlist',
+    //     icon: 'heart',
+    // },
+    // {
+    //     name: 'profile.wallet',
+    //     title: 'Wallet',
+    //     icon: 'credit-card',
+    // },
+    // {
+    //     name: 'profile.messages',
+    //     title: 'Messages',
+    //     icon: 'comments',
+    // },
     {
         name: 'profile.reviews',
-        title: 'Reviews',
+        title: 'Відгуки',
         icon: 'message',
         count: badges.reviews,
     },

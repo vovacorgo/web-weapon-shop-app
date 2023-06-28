@@ -2,46 +2,44 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "akaunting/laravel-money": "^4.0",
-        "astrotomic/laravel-translatable": "^11.12",
-        "backpack/crud": "^5.6",
-        "backpack/filemanager": "^2.0",
-        "backpack/menucrud": "^3.0",
-        "backpack/pagemanager": "^3.0",
-        "backpack/permissionmanager": "^6.0",
-        "backpack/settings": "^3.0",
-        "barryvdh/laravel-debugbar": "^3.8",
-        "barryvdh/laravel-elfinder": "^0.5.2",
         "bensampo/laravel-enum": "^6.3",
-        "digitallyhappy/toggle-field-for-backpack": "^2.0",
-        "guzzlehttp/guzzle": "^7.6",
+        "bezhansalleh/filament-shield": "^2.4",
+        "camya/filament-title-with-slug": "^0.5.6",
+        "filament/filament": "^2.0",
+        "filament/spatie-laravel-media-library-plugin": "^2.0",
+        "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.8",
-        "laravel/breeze": "^1.21",
-        "laravel/cashier": "*",
-        "laravel/framework": "^10.8",
-        "laravel/horizon": "^5.16",
+        "laravel/cashier": "^14.12",
+        "laravel/framework": "^10.0",
+        "laravel/horizon": "^5.13",
         "laravel/sanctum": "^3.2",
         "laravel/socialite": "^5.6",
-        "laravel/telescope": "^4.14",
-        "laravel/tinker": "^2.8",
-        "ocramius/package-versions": "*",
-        "opcodesio/log-viewer": "^2.4",
+        "laravel/telescope": "^4.12",
+        "laravel/tinker": "^2.7",
+        "opcodesio/log-viewer": "^2.0",
+        "phpsa/filament-password-reveal": "^1.1",
         "predis/predis": "^2.1",
-        "spatie/laravel-medialibrary": "^10.0.0",
-        "tightenco/ziggy": "^1.6"
+        "pxlrbt/filament-spotlight": "^0.3.6",
+        "tightenco/ziggy": "^1.0",
+        "ysfkaya/filament-phone-input": "^1.2"
     },
     "require-dev": {
-        "backpack/generators": "^3.3",
+        "barryvdh/laravel-debugbar": "^3.7",
+        "doctrine/dbal": "^3.6",
         "fakerphp/faker": "^1.9.1",
+        "laravel/breeze": "^1.18",
         "laravel/pint": "^1.0",
-        "laravel/sail": "^1.18",
+        "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
-        "phpunit/phpunit": "^10.1",
+        "phpunit/phpunit": "^10.0",
         "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
@@ -71,26 +69,14 @@
             "@php artisan key:generate --ansi"
         ]
     },
-    "extra": {
-        "laravel": {
-            "dont-discover": []
-        }
-    },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true,
-            "php-http/discovery": true
+            "pestphp/pest-plugin": true
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:vovacorgo/medialibrary-uploaders.git"
-        }
-    ]
+    "prefer-stable": true
 }
